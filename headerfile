@@ -1,0 +1,37 @@
+#include <iostream>
+#include <fstream>
+
+int main()
+{
+    std::ofstream headerFile("MyHeader.h");
+
+    if (!headerFile)
+    {
+        std::cout << "Error creating header file!" << std::endl;
+        return 1;
+    }
+
+    headerFile << "#ifndef MYHEADER_H\n";
+    headerFile << "#define MYHEADER_H\n\n";
+
+    headerFile << "#include <iostream>\n\n";
+
+    headerFile << "// Function declaration\n";
+    headerFile << "void greet();\n\n";
+
+    headerFile << "// Class declaration\n";
+    headerFile << "class Calculator\n";
+    headerFile << "{\n";
+    headerFile << "public:\n";
+    headerFile << "    int add(int a, int b);\n";
+    headerFile << "    int subtract(int a, int b);\n";
+    headerFile << "};\n\n";
+
+    headerFile << "#endif\n";
+
+    headerFile.close();
+
+    std::cout << "Header file 'MyHeader.h' created successfully!" << std::endl;
+
+    return 0;
+}
